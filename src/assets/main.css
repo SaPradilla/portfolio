@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --blanco: #F3F3F4;
+    --fondo-negro:#14110F ;
+}
+
+.noise::before{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    content: "";
+    /* you can control opacity of noise  */
+    opacity: 0.03;  
+    z-index: 1000;
+    pointer-events: none;
+    background: url(../assets/img/noise.gif) ;
+}
+
+
+span.typed-cursor{
+    font-size: 2.1em;
+
+    color: var(--primary-500);
+}
+@media (max-width: 768px) {
+
+}
