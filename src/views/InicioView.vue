@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n';
 import { usePrimeVue } from 'primevue/config';
 import { ref,watch } from "vue";
 import Presentacion from '../components/PresentacionView.vue'
+import SobreMi from '@/components/SobreMi.vue';
 //state
 const themeCheckend = ref(false)
 const currentTheme = ref('lara-dark-amber');
@@ -58,6 +59,7 @@ watch(currentLocale, (newLocale, oldLocale) => {
 
         <div class="contenedor-portafolio">
             <Presentacion/>
+            <SobreMi/>
         </div>
 
     </div>
