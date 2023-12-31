@@ -96,7 +96,7 @@
 
 <style  scoped>
     /* background: linear-gradient(180deg, rgb(90, 15, 195) 0%, rgb(90, 15, 195) 100%); */
-.blur{
+/* .blur{
     z-index: 2;
     background-color: var(--primary-500);
     border-radius: 164px/160px;
@@ -107,7 +107,7 @@
     top: 600px;
     width: 200px;
     opacity: 1;
-} 
+}  */
 div.typed-element{
     display: flex;
     align-items: center;
