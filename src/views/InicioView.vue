@@ -59,7 +59,7 @@ watch(currentLocale, (newLocale, oldLocale) => {
 
         <div class="contenedor-portafolio">
             <Presentacion/>
-            <SobreMi/>
+            <SobreMi class="sobremi"/>
         </div>
 
     </div>
@@ -107,7 +107,7 @@ button.tema-boton {
 .traductor:hover{
     font-size: 2.1em;
 }
-@media (max-width: 768px) {
+@media (max-width: 885px) {
     .contenedor-portafolio{
         width: 100%;
     }

@@ -171,7 +171,7 @@ h2{
 .profesion{
     height: 80px;
 }
-@media (max-width: 768px) {
+@media (max-width: 885px) {
     h1{
         font-size:4em;
         text-align: center;
@@ -193,6 +193,7 @@ h2{
         flex-direction: row;
         position: absolute;
         bottom: 0;
+        margin-bottom: 10vh;
     }   
 
     .profesion{

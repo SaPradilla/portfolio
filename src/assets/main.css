@@ -1,3 +1,5 @@
+@import '@fontsource-variable/onest';
+
 *{
     margin: 0;
     padding: 0;
@@ -7,6 +9,9 @@
     --fondo-negro:#14110F ;
 }
 
+body {
+    font-family: 'Onest Variable', sans-serif;
+}
 .noise::before{
     position: fixed;
     top: 0;
@@ -27,6 +32,6 @@ span.typed-cursor{
 
     color: var(--primary-500);
 }
-@media (max-width: 768px) {
+@media (max-width: 885px) {
 
 }
