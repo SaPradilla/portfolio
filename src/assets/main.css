@@ -32,6 +32,28 @@ span.typed-cursor{
 
     color: var(--primary-500);
 }
-@media (max-width: 885px) {
+.p-fieldset,.p-fieldset .p-fieldset-legend {
+    background-color: transparent;
+    box-shadow: 0px 0px 50px -30px #fbbe2421;
 
+    border: 0.3px solid #f59f0b19;
+    /* opacity: 0.2; */
+}
+
+.p-fieldset {
+    padding: 20px;
+    /* color:var(--primary-300) ; */
+    
+}
+/* .p-fieldset-toggler {
+    margin
+} */
+@media (max-width: 900px) {
+    .p-fieldset{
+        width: 50vh;
+        margin: 0 auto;
+    }
+    .p-fieldset-legend{
+        margin: 0 auto;
+    }
 }
