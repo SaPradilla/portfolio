@@ -6,6 +6,7 @@ import { Typed } from "@duskmoon/vue3-typed-js";
 import type { TypedOptions } from "@duskmoon/vue3-typed-js";
 import { useI18n } from 'vue-i18n';
 import { ref, onMounted, watch } from "vue";
+import Dialog from 'primevue/dialog';
 
 const { t, locale } = useI18n();
 
@@ -13,6 +14,7 @@ const diseno = ref(t("Diseñador"))
 const programador = ref(t("Programador"))
 const analista = ref(t("Analista"))
 const showTyped = ref(true);
+const visible = ref(false);
 
 onMounted(() => {
     diseno.value = t("Diseñador")
@@ -49,6 +51,11 @@ watch(locale, () => {
 </script>
 
 <template>
+    <Dialog v-model:visible="visible" modal header=" "  :draggable="false"  :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }" >
+
+        <img class="cv" src="https://res.cloudinary.com/dznrcsgts/image/upload/portfolio/ufxuqh22hxp9w3wtcprg.jpg" alt="Currículum Vitae" >
+       
+    </Dialog>
     <div class="blur"></div>
     <div class="contenedor ">
         <div class="contenedor-presentacion">
@@ -73,7 +80,7 @@ watch(locale, () => {
             </div>
             <div class="acciones">
                 <Button class="accion" :label="t('Contacto')" raised outlined />
-                <Button class="accion" label="CV" raised />
+                <Button class="accion" label="CV" raised @click="visible = true"  />
             </div>
         </div>
         <div class="iconos">
@@ -104,6 +111,9 @@ watch(locale, () => {
 </template>
 
 <style  scoped>
+img.cv{
+    width: 100%;    
+}
 /* background: linear-gradient(180deg, rgb(90, 15, 195) 0%, rgb(90, 15, 195) 100%); */
 /* .blur{
     z-index: 2;

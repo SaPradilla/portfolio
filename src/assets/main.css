@@ -34,9 +34,9 @@ span.typed-cursor{
 }
 .p-fieldset,.p-fieldset .p-fieldset-legend {
     background-color: transparent;
-    box-shadow: 0px 0px 50px -30px #fbbe2421;
+    box-shadow: 0px 0px 50px -30px #fbbe244a;
 
-    border: 0.3px solid #f59f0b19;
+    border: 1px solid #222;
     /* opacity: 0.2; */
 }
 
@@ -48,9 +48,12 @@ span.typed-cursor{
 /* .p-fieldset-toggler {
     margin
 } */
+.p-dialog .p-dialog-header {
+    background: black;
+}
 @media (max-width: 900px) {
     .p-fieldset{
-        width: 50vh;
+        width: 80%;
         margin: 0 auto;
     }
     .p-fieldset-legend{
