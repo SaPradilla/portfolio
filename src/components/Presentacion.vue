@@ -87,7 +87,7 @@ watch(locale, () => {
             <div class="ico" >
 
                 <!-- <a href="https://github.com/SaPradilla" target="_blank"> -->
-                <a href="#"
+                <a href="https://github.com/SaPradilla"
                     >
                     <svg xmlns="http://www.w3.org/2000/svg" width="57" height="55" viewBox="0 0 57 55" >
                         <path
