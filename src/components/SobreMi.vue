@@ -402,6 +402,9 @@ hr {
     .contenedor-habilidades svg {
         width: 3.5em;
     }
+    .texto{
+        text-align: center;
+    }
 
 }
 

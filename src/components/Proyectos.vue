@@ -2,10 +2,12 @@
 import {ref,onMounted, computed} from 'vue';
 import { useI18n } from 'vue-i18n';
 const { t, locale } = useI18n();
+import Dialog from 'primevue/dialog';
+import ModalProyectos from './ModalProyectos.vue';
+const visible = ref(false);
 
 
 // Calcular el número de columnas para el Bento Grid
-
 const proyectos = ref([
     {
         nombre:'Votaciones',
@@ -43,46 +45,42 @@ const proyectos = ref([
         fecha_fin:'16/Enero/2024',
     },{
         nombre:'Veterinaria',
-        // imagen:'src/assets/img/background_proyecto.png',
+        imagen:'src/assets/img/background_proyecto.png',
         descripcion:'Gestion Veterinaria',
         fecha_fin:'16/Enero/2024',
     },{
         nombre:'Veterinaria',
-        // imagen:'src/assets/img/background_proyecto.png',
+        imagen:'src/assets/img/background_proyecto.png',
         descripcion:'Gestion Veterinaria',
         fecha_fin:'16/Enero/2024',
     },{
         nombre:'Veterinaria',
-        // imagen:'src/assets/img/background_proyecto.png',
+        imagen:'src/assets/img/background_proyecto.png',
         descripcion:'Gestion Veterinaria',
         fecha_fin:'16/Enero/2024',
     },{
         nombre:'Veterinaria',
-        // imagen:'src/assets/img/background_proyecto.png',
+        imagen:'src/assets/img/background_proyecto.png',
         descripcion:'Gestion Veterinaria',
         fecha_fin:'16/Enero/2024',
     },
 
 ])
 
-const numColumnas = ref();
-const randomWidth = ref();
-const classWithRandom = ref(['w-2-3','w-3-4','w-4',])
-
-onMounted(() => {
-  numColumnas.value = `repeat(${ Math.min(3, Math.ceil(Math.sqrt(proyectos.value.length)))} , 1fr)`
-  console.log(numColumnas.value)
-  anchoRandom()
- 
-})
-const anchoRandom = () => {
-  const minWidth = 100; 
-  const maxWidth = 300; 
-  randomWidth.value = `${Math.floor(Math.random() * (maxWidth - minWidth + 1)) + minWidth}px`;
-}
 </script>
 
 <template>
+
+    <Dialog
+        :pt="{
+            mask: {
+                style: 'backdrop-filter: blur(5px)'
+            }
+        }"
+        v-model:visible="visible" modal  :draggable="false"  :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }" >
+        <ModalProyectos/>
+    </Dialog>
+
     <div class="contenedor">
         <div class="proyectos">
 
@@ -100,15 +98,14 @@ const anchoRandom = () => {
                 </div>
             </div>
 
-            <div class="lista-proyectos grid auto-rows-[192px] grid-cols-3 gap-2">
+            <div class="lista-proyectos grid auto-rows-[192px] grid-cols-3 md:grid-cols-2 gap-2 sm:grid-cols-1 sm:w-80 sm:p-2 sm:m-auto ">
                 
-                <div class="proyecto" v-for="(proyect, index) in proyectos" :key="index"
-                    :class="{ 'row-span-1': true, 'rounded-xl': true, 'border-2': true, 'col-span-2': index === 3 || index === 6 }">
+                <div class="proyecto " v-for="(proyect, index) in proyectos" :key="index"
+                    :class="{ 'row-span-1': true, 'rounded-xl': true, 'border-2': true, 'col-span-2': index === 3 || index === 6 , 'md:col-span-2': index === 2 || index === 3, 'sm:col-span-1':true}">
+                    <img :src="proyect.imagen" alt="" srcset="" />
                     
-                    <!-- <img :src="proyect.imagen" alt="" srcset="" /> -->
-                    
-                    <div class="content-proyecto">
-                        <div class="desc-proyecto">
+                    <div class="content-proyecto " @click="visible = !visible ">
+                        <div class="desc-proyecto"> 
                             <p>{{ proyect.nombre }}</p>
                             <div class="info-proyecto">
                                 <small class="descipcion-proyecto">{{ proyect.descripcion }}</small>
@@ -140,17 +137,14 @@ const anchoRandom = () => {
 
 <style scoped>
 
-
 .proyectos{
     margin-top: 10rem;
     margin-bottom: 10rem;
 }
 .contenedor-proyectos{
     margin-top: 4rem;
-    
+    margin-bottom: 4rem;
 }
-
-
 .proyecto{
     position: relative;
     height: 12rem;
@@ -158,7 +152,6 @@ const anchoRandom = () => {
     border-radius: 1.2rem;
     border: 1px solid;
 }
-
 .proyecto img{
     width: 100%;
     height: 100%;
@@ -209,5 +202,15 @@ const anchoRandom = () => {
     display: flex;
     flex-direction: column;
 }
-
+@media (max-width: 885px) {
+    h1{
+        font-size: 3rem;
+    }
+    .texto{
+        margin: 0 auto;
+    }
+    .proyectos{
+        text-align: center;
+    }
+}
 </style>

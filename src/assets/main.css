@@ -74,7 +74,13 @@ span.typed-cursor{
     margin
 } */
 .p-dialog .p-dialog-header {
-    background: black;
+    background: var(--primary-color-text);
+}
+
+.p-galleria .p-galleria-thumbnail-container {
+
+    background-color: transparent !important;
+
 }
 @media (max-width: 900px) {
     .p-fieldset{
