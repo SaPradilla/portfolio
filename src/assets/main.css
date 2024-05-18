@@ -1,4 +1,9 @@
 @import '@fontsource-variable/onest';
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+
+
 
 *{
     margin: 0;
@@ -12,6 +17,26 @@
 body {
     font-family: 'Onest Variable', sans-serif;
 }
+
+h1 {
+    font-size: 4.5em;
+    color: var(--primary-500);
+    text-shadow: 0px 0px 50px #f59f0b5d;
+    
+}
+.texto {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 70%;
+}
+
+.texto p {
+    font-size: 1.5em;
+}
+
+
+
 .noise::before{
     position: fixed;
     top: 0;

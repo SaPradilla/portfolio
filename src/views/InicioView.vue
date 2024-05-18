@@ -3,8 +3,9 @@ import { Icon } from '@iconify/vue';
 import { useI18n } from 'vue-i18n';
 import { usePrimeVue } from 'primevue/config';
 import { ref,watch } from "vue";
-import Presentacion from '../components/PresentacionView.vue'
+import Presentacion from '../components/Presentacion.vue'
 import SobreMi from '@/components/SobreMi.vue';
+import Proyectos from '@/components/Proyectos.vue';
 //state
 const themeCheckend = ref(false)
 const currentTheme = ref('lara-dark-amber');
@@ -58,10 +59,15 @@ watch(currentLocale, (newLocale, oldLocale) => {
         </div>
 
         <div class="contenedor-portafolio">
+
             <Presentacion/>
             <SobreMi class="sobremi"/>
+            <div style="margin-bottom: 100px;">
+                
+                <Proyectos />
+            </div>
+            
         </div>
-
     </div>
 </template>
 

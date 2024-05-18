@@ -234,12 +234,7 @@ const { t, locale } = useI18n();
 
 <style scoped>
 
-h1 {
-    font-size: 4.5em;
-    color: var(--primary-500);
-    text-shadow: 0px 0px 50px #f59f0b5d;
-    
-}
+
 .titulo{
     padding: 10px;
 
@@ -268,16 +263,6 @@ h2 {
     transition: all 1.2s ease-out;
 }
 
-.texto {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    width: 70%;
-}
-
-.texto p {
-    font-size: 1.5em;
-}
 
 .info-perfil p {
     text-align: center;
