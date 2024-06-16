@@ -23,9 +23,9 @@ onMounted(async()=>{
 const getProyects = async()=>{
     const res = await ProyectosService.getProyects()
     proyectos.value = res.data.data
-    setTimeout(() => {
-        loadingProyects.value = false
-    }, 2000);
+    
+    loadingProyects.value = false
+    
 }
 
 const handleCurrentProyectModal = (proyect)=>{
