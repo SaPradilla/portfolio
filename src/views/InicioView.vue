@@ -6,6 +6,7 @@ import { ref,watch } from "vue";
 import Presentacion from '../components/Presentacion.vue'
 import SobreMi from '@/components/SobreMi.vue';
 import Proyectos from '@/components/Proyectos.vue';
+import Contacto from '@/components/Contacto.vue'
 //state
 const themeCheckend = ref(false)
 const currentTheme = ref('lara-dark-amber');
@@ -62,10 +63,8 @@ watch(currentLocale, (newLocale, oldLocale) => {
 
             <Presentacion/>
             <SobreMi class="sobremi"/>
-            <div style="margin-bottom: 100px;">
-                
-                <Proyectos />
-            </div>
+            <Proyectos />
+            <Contacto/>
             
         </div>
     </div>
@@ -75,7 +74,7 @@ watch(currentLocale, (newLocale, oldLocale) => {
 
 .contenedor-portafolio{
     width: 100vh;
-    height: 100vh;
+    height: 100%;
     margin: 0 auto;
 }
 .botones-config {

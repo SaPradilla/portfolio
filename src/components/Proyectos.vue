@@ -17,19 +17,20 @@ const currentProyect = ref()
 const loadingProyects = ref(true)
 
 onMounted(async()=>{
-
-    const res = await ProyectosService.getProyects()
-    proyectos.value = res.data.data
-    loadingProyects.value = false
-    console.log(res)
-    console.log(proyectos.value)
+    await getProyects()
 })
 
-const handleCurrentProyectModal = (proyect)=>{
+const getProyects = async()=>{
+    const res = await ProyectosService.getProyects()
+    proyectos.value = res.data.data
+    setTimeout(() => {
+        loadingProyects.value = false
+    }, 2000);
+}
 
+const handleCurrentProyectModal = (proyect)=>{
     ProyectoStore.currentProyect = proyect;
     visible.value = !visible.value
-
 }
 
 </script>
@@ -69,10 +70,17 @@ const handleCurrentProyectModal = (proyect)=>{
             <div class="lista-proyectos grid auto-rows-[192px] grid-cols-3 md:grid-cols-2 gap-2 sm:grid-cols-1 sm:w-80 sm:p-2 sm:m-auto ">
                 
                 <div class="proyecto " v-for="(proyect, index) in proyectos" :key="index"
-                    :class="{ 'row-span-1': true, 'rounded-xl': true, 'border-2': true, 'col-span-2': index === 3 || index === 6 , 'md:col-span-2': index === 2 || index === 3, 'sm:col-span-1':true}">
-                    <img :src="proyect.images[0].img" :alt="proyect.title" />
+                    :class="{ 'row-span-1': true, 'rounded-xl': true, 'border-1': true, 'col-span-1': index === 3 || index === 6 , 'md:col-span-2': index === 2 || index === 3, 'sm:col-span-1':true}">
+
+
                     
-                    <div class="content-proyecto " @click="handleCurrentProyectModal(proyect) ">
+                    <div class=" loading flex items-center justify-center h-full max-w-sm  rounded-lg animate-pulse" v-if="loadingProyects" >
+                        <img class=" h-12 w-12" src="../assets/img/image.png" alt="">
+                    </div>
+
+                    <img  v-if="!loadingProyects" class="proyecto__image" :src="proyect.images[0].img" :alt="proyect.title" />
+                    
+                    <div   v-if="!loadingProyects" class="content-proyecto " @click="handleCurrentProyectModal(proyect) ">
                         
                         <div class="desc-proyecto"> 
                             <p>{{ proyect.title }}</p>
@@ -88,6 +96,7 @@ const handleCurrentProyectModal = (proyect)=>{
                         </div>
                     </div>
                     
+
                 </div>
 
             </div>
@@ -99,6 +108,13 @@ const handleCurrentProyectModal = (proyect)=>{
 
 
 <style scoped>  
+
+.loading{
+
+
+    background-color:var(--surface-900);
+    
+}
 
 .proyectos{
     margin-top: 10rem;
@@ -115,7 +131,7 @@ const handleCurrentProyectModal = (proyect)=>{
     border-radius: 1.2rem;
     border: 1px solid;
 }
-.proyecto img{
+.proyecto img.proyecto__image{
     width: 100%;
     height: 100%;
     transition: transform .4s ease-in-out;
@@ -139,7 +155,7 @@ const handleCurrentProyectModal = (proyect)=>{
 .content-proyecto:hover{
     backdrop-filter: blur(2.5px);
 }
-.proyecto:hover img{
+.proyecto:hover img.proyecto__image{
     transform: scale(110%) rotate(2deg);
 } 
 .desc-proyecto{
@@ -178,5 +194,6 @@ const handleCurrentProyectModal = (proyect)=>{
     .proyectos{
         text-align: center;
     }
+
 }
 </style>
