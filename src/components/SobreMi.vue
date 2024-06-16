@@ -7,7 +7,7 @@ const { t, locale } = useI18n();
 
 
 <template>
-    <div class="contenedor">
+    <section class="contenedor">
         <div class="sobremi">
             <h1> {{ t("sobremiTitle") }} </h1>
             <div class="contenedor-sobremi" v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }">
@@ -228,7 +228,7 @@ const { t, locale } = useI18n();
             </div>
 
         </div>
-    </div>
+    </section>
 </template>
 
 

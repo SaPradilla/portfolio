@@ -84,7 +84,7 @@
                 <!-- opciones -->
                 <div class="flex gap-3">
                     <!-- Repository -->
-                    <a :href="proyectos.currentProyect.repository_url"  >
+                    <a :href="proyectos.currentProyect.repository_url"  target="_blank">
                         <Button rounded class="p-1  text-white flex  align-middle gap-3" >
                             <p> Repositorio </p>
                             <Icon class="icon_github" icon="ant-design:github-filled"  />

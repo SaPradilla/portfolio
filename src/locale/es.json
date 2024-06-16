@@ -17,7 +17,9 @@
     "Descripción":"Descripción",
     "Contacto_texto":"¿Necesitas un programador?",
     "Contacto_texto_dos":"Aqui estoy para tí. Escribeme ;)",
-    "Enviar":"Enviar"
-    
+    "Enviar":"Enviar",
+    "Nombre":"Nombre",
+    "Email":"Email",
+    "Mensaje":"Mensaje"
 
 }

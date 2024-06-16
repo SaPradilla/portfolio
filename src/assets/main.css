@@ -14,6 +14,10 @@
     --fondo-negro:#14110F ;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Onest Variable', sans-serif;
 }

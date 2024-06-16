@@ -50,7 +50,7 @@ const handleCurrentProyectModal = (proyect)=>{
         </template>
 
     </Dialog>
-    <div class="contenedor">
+    <section class="contenedor">
         <div class="proyectos">
 
             <h1> {{ t('proyectosTitle') }}</h1>
@@ -103,7 +103,7 @@ const handleCurrentProyectModal = (proyect)=>{
 
         </div>
 
-    </div>
+    </section>
 </template>
 
 

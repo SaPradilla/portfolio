@@ -18,11 +18,9 @@
     "Descripción":"Description",
     "Contacto_texto":"Do you need a programmer?",
     "Contacto_texto_dos":"I'm here for you. Write me ;)",
-    "Enviar":"Send"
-
-
-
-
-
+    "Enviar":"Send",
+    "Nombre":"Name",
+    "Email":"Correo",
+    "Mensaje":"Message"
 
 }

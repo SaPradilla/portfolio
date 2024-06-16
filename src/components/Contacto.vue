@@ -17,7 +17,7 @@ const contactInfo = ref({
 
 <template>
 
-    <div class="contact flex flex-col gap-10 mb-44">
+    <section id="contact" class="contact flex flex-col gap-10 mb-44">
 
         <h1> {{ t("Contacto") }} </h1>
 
@@ -36,26 +36,26 @@ const contactInfo = ref({
             <div class=" flex items-center  gap-5 ">
                 <!-- Name -->
                 <div class="input flex flex-col gap-2">
-                    <label for="username">Name</label>
+                    <label for="username">{{  t('Nombre') }}</label>
                     <InputText class=" h-10 "  id="name" v-model="contactInfo.name" aria-describedby="contactInfo-name" />
                 </div>
                 <!-- Email -->
                 <div class="input flex flex-col gap-2">
-                    <label for="username">Email</label>
+                    <label for="username"> {{ t('Email')  }}</label>
                     <InputText class=" h-10 "  id="email" v-model="contactInfo.email" aria-describedby="contactInfo-email" />
                 </div>
             </div>
             <!-- Message -->
             <div class="flex flex-col gap-2">
-                <label for="username">Message</label>
-                <Textarea class="h-44 " v-model="contactInfo.message"  />
+                <label for="username">{{ t('Mensaje') }}</label>
+                <Textarea class="h-44" v-model="contactInfo.message"  />
             </div>
 
             <Button class=" contact_form__button w-24 h-10 " :label="t('Enviar')" raised  />
             
         </div>
 
-    </div>
+    </section>
 
 </template>
 
