@@ -4,6 +4,8 @@ import { useI18n } from 'vue-i18n';
 const { t, locale } = useI18n();
 import Dialog from 'primevue/dialog';
 import ModalProyectos from './ModalProyectos.vue';
+import Skeleton from './Skeleton.vue';
+
 const visible = ref(false);
 import ProyectosService from '../services/Proyectos';
 import { Icon } from '@iconify/vue';
@@ -21,11 +23,14 @@ onMounted(async()=>{
 })
 
 const getProyects = async()=>{
-    const res = await ProyectosService.getProyects()
-    proyectos.value = res.data.data
-    
-    loadingProyects.value = false
-    
+    try {
+        const res = await ProyectosService.getProyects()
+        proyectos.value = res.data.data
+        loadingProyects.value = false
+        
+    } catch (error) {
+        throw error;
+    }
 }
 
 const handleCurrentProyectModal = (proyect)=>{
@@ -67,20 +72,17 @@ const handleCurrentProyectModal = (proyect)=>{
                 </div>
             </div>
 
-            <div class="lista-proyectos grid auto-rows-[192px] grid-cols-3 md:grid-cols-2 gap-2 sm:grid-cols-1 sm:w-80 sm:p-2 sm:m-auto ">
+            <Skeleton v-if="loadingProyects"/>
+            
+            <div v-else class="lista-proyectos grid auto-rows-[192px] grid-cols-3 md:grid-cols-2 gap-2 sm:grid-cols-1 sm:w-80 sm:p-2 sm:m-auto ">
+                
                 
                 <div class="proyecto " v-for="(proyect, index) in proyectos" :key="index"
                     :class="{ 'row-span-1': true, 'rounded-xl': true, 'border-1': true, 'col-span-1': index === 3 || index === 6 , 'md:col-span-2': index === 2 || index === 3, 'sm:col-span-1':true}">
 
-
+                    <img class="proyecto__image" :src="proyect.images[0].img" :alt="proyect.title" />
                     
-                    <div class=" loading flex items-center justify-center h-full max-w-sm  rounded-lg animate-pulse" v-if="loadingProyects" >
-                        <img class=" h-12 w-12" src="../assets/img/image.png" alt="">
-                    </div>
-
-                    <img  v-if="!loadingProyects" class="proyecto__image" :src="proyect.images[0].img" :alt="proyect.title" />
-                    
-                    <div   v-if="!loadingProyects" class="content-proyecto " @click="handleCurrentProyectModal(proyect) ">
+                    <div  class="content-proyecto " @click="handleCurrentProyectModal(proyect) ">
                         
                         <div class="desc-proyecto"> 
                             <p>{{ proyect.title }}</p>
@@ -109,12 +111,7 @@ const handleCurrentProyectModal = (proyect)=>{
 
 <style scoped>  
 
-.loading{
 
-
-    background-color:var(--surface-900);
-    
-}
 
 .proyectos{
     margin-top: 10rem;
