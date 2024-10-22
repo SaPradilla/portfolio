@@ -34,7 +34,7 @@ const { t, locale } = useI18n();
 
                         </div>
 
-                        <p class="edad">19 {{ t('edad') }}</p>
+                        <p class="edad">20 {{ t('edad') }}</p>
                     </div>
 
                 </div>
