@@ -11,8 +11,6 @@ const contactInfo = ref({
     message:'',
 })
 
-
-
 </script>
 
 <template>
