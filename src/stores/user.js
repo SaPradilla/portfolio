@@ -30,12 +30,10 @@ export const useUser = defineStore('user',()=>{
             token.value = tokenLocal;
             
             const tokenExtract = await validateAndExtract({token:tokenSaved});
-            console.log(tokenExtract);
             id.value = tokenExtract.id
 
             
         } catch (error) {
-            // console.log(error);
             throw error;
         }
 

@@ -7,7 +7,7 @@ import Button from 'primevue/button';
 import { Icon } from "@iconify/vue";
 import { useUser } from '@/stores/user';
 
-const pwd = ref('contrasenaNueva');
+const pwd = ref('');
 const isLoading = ref(false);
 const error =  reactive({
     exists:false,
