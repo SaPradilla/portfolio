@@ -86,6 +86,22 @@ span.typed-cursor{
     background-color: transparent !important;
 
 }
+
+/* dialog componente */
+
+/* .p-dialog .p-component{
+    width:  min-content;
+} */
+.p-galleria-content{
+    gap: 1rem;
+}
+.p-galleria-thumbnail-items{
+
+    gap: 3px;
+}
+.p-password-input{
+    padding: .2rem .6rem;
+}
 @media (max-width: 900px) {
     .p-fieldset{
         width: 80%;
