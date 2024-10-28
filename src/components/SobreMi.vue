@@ -1,7 +1,22 @@
 <script setup>
+import { ref } from "vue";
 import Fieldset from 'primevue/fieldset'
 import { useI18n } from 'vue-i18n';
+import router from "@/router";
 const { t, locale } = useI18n();
+
+const counter  = ref(0);
+
+const increment = ()=>{
+    counter.value += 1
+    if(counter.value === 2){
+        redirectToPradiZone()
+    }
+}
+
+const redirectToPradiZone =  ()=>{
+    router.push('pradi')
+}
 
 </script>
 
@@ -17,7 +32,9 @@ const { t, locale } = useI18n();
                     </p>
                 </div>
                 <div class="info-perfil">
-                    <div class="perfil" v-ripple="{
+                    <div 
+                        @dblclick="increment"
+                        class="perfil" v-ripple="{
                         pt: {
                             root: { style: 'background: var(--primary-500)' }
                         }

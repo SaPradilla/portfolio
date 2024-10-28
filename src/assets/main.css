@@ -99,7 +99,9 @@ span.typed-cursor{
 
     gap: 3px;
 }
-
+.p-password-input{
+    padding: .2rem .6rem;
+}
 @media (max-width: 900px) {
     .p-fieldset{
         width: 80%;
