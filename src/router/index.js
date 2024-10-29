@@ -18,7 +18,7 @@ const router = createRouter({
     {
       path:'/pradi',
       name:'pradi',
-      component: AdminLoginView
+      component: AdminLoginView,
     },
     {
       path:'/pradi/zone',
@@ -37,8 +37,8 @@ const router = createRouter({
 
 router.beforeEach(async(to, from, next) => {
   const userStore = useUser()
+  const token = localStorage.getItem('token');
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    const token = localStorage.getItem('token'); 
 
     if (token) {
       // Validación del token en el servidor
@@ -59,7 +59,10 @@ router.beforeEach(async(to, from, next) => {
       // Si no hay token, redirige a la página de login
       next('/');
     }
-  } else {
+  }else if (to.path === '/pradi' && token){
+    next('/');
+  }
+  else {
     // Si la ruta no requiere autenticación, permite el acceso
     next();
   }

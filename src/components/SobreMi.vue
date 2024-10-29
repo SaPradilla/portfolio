@@ -15,7 +15,13 @@ const increment = ()=>{
 }
 
 const redirectToPradiZone =  ()=>{
-    router.push('pradi')
+    const token = localStorage.getItem('token');
+    if(!token){
+        router.push({name:'pradi'});
+    }else{
+        router.push({name:'zone'});
+    }
+
 }
 
 </script>
